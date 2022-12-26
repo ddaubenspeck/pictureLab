@@ -86,44 +86,14 @@ public class Picture extends SimplePicture
   }
   
   /** Method to set the blue to 0 */
-  //int[] nums;
-  //for(int i: nums)
-  //for(int i=0; i<nums.length; i++)
-  // nums[i]
   public void zeroBlue()
   {
     Pixel[][] pixels = this.getPixels2D();
-    //for(int r = 0; r<pixels.length; r++)
-    /*for (Pixel[] rowArray : pixels)
+    for (Pixel[] rowArray : pixels)
     {
       for (Pixel pixelObj : rowArray)
       {
         pixelObj.setBlue(0);
-      }
-    }*/
-    for(int row=0; row<pixels.length; row++){
-      for(int col=0; col<pixels[row].length; col++){
-        pixels[row][col].setBlue(0);
-        pixels[row][col].setRed(255);
-      }
-    }
-  }
-
-  public void keepOnlyBlue()
-  {
-    Pixel[][] pixels = this.getPixels2D();
-    //for(int r = 0; r<pixels.length; r++)
-    /*for (Pixel[] rowArray : pixels)
-    {
-      for (Pixel pixelObj : rowArray)
-      {
-        pixelObj.setBlue(0);
-      }
-    }*/
-    for(int row=0; row<pixels.length; row++){
-      for(int col=0; col<pixels[row].length; col++){
-        pixels[row][col].setRed(0);
-        pixels[row][col].setGreen(0);
       }
     }
   }
@@ -146,6 +116,28 @@ public class Picture extends SimplePicture
         rightPixel.setColor(leftPixel.getColor());
       }
     } 
+  }
+  
+  public void ScrewUpPicture(){
+	  Pixel[][] pixels = this.getPixels2D();
+	  int midPoint = pixels[0].length / 2;
+	  
+	  for(int r=0; r<pixels.length; r++){
+		  for(int c=midPoint ; c<pixels[r].length; c++){
+			  if(c%15==0){
+				  pixels[r][c].setBlue(0);
+				  pixels[r][c].setRed(0);
+				  pixels[r][c].setGreen(0);
+			  }
+			  else
+			  {
+				  pixels[r][c].setBlue(255);
+				  pixels[r][c].setRed(255);
+				  pixels[r][c].setGreen(255);
+			  }
+		  }
+	  }
+	  
   }
   
   /** Mirror just part of a picture of a temple */
@@ -203,8 +195,6 @@ public class Picture extends SimplePicture
     }   
   }
 
-  
-
   /** Method to create a collage of several pictures */
   public void createCollage()
   {
@@ -220,10 +210,6 @@ public class Picture extends SimplePicture
     this.copy(flower2,500,0);
     this.mirrorVertical();
     this.write("collage.jpg");
-  }
-
-  public void mergeImages(Picture pic1, Picture pic2){
-    
   }
   
   
@@ -261,7 +247,7 @@ public class Picture extends SimplePicture
   {
     Picture beach = new Picture("beach.jpg");
     beach.explore();
-    beach.zeroBlue();
+    beach.ScrewUpPicture();
     beach.explore();
   }
   

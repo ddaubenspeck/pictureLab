@@ -11,38 +11,10 @@ public class PictureTester
   /** Method to test zeroBlue */
   public static void testZeroBlue()
   {
-    Picture beach = new Picture("images/beach.jpg");
+    Picture beach = new Picture("beach.jpg");
     beach.explore();
     beach.zeroBlue();
     beach.explore();
-  }
-
-  public static void testKeepOnlyBlue()
-  {
-    Picture beach = new Picture("images/beach.jpg");
-    //beach.explore();
-    beach.keepOnlyBlue();
-    beach.explore();
-  }
-
-  public static void testMergePictures(){
-    Picture pic1 = new Picture("images/scrambled1.png");
-    Picture pic2 = new Picture("images/scrambled2.png");
-    Pixel[][] pixels = pic1.getPixels2D();
-    Pixel[][] pixels2 = pic2.getPixels2D();
-    int evens=1;
-    for(int r=0; r<pixels.length; r+=2){
-      for(int c=0; c<pixels[r].length; c++){
-        /*pixels[r][c].setBlue(pixels2[evens][c].getBlue());
-        pixels[r][c].setRed(pixels2[evens][c].getRed());
-        pixels[r][c].setGreen(pixels2[evens][c].getGreen());*/
-      }
-      evens+=2;
-    }
-    pic1.explore();
-    
-
-    
   }
   
   /** Method to test mirrorVertical */
@@ -86,9 +58,8 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    //testZeroBlue();
-    //testMergePictures();
-    testKeepOnlyBlue();
+    testZeroBlue();
+    //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
     //testNegate();
