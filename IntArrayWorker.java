@@ -16,7 +16,7 @@ public class IntArrayWorker
    * *******************************************
    *********************************************/
   public int getCount(int i){
-	  
+	  return 0;
   }
   
   
